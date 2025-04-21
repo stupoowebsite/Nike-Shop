@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://wallpaper.forfun.com/fetch/54/54c2a4c6eabd5d0b60d7f8cdb8642011.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        header {
+            background-color: rgba(17, 17, 17, 0.8);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            padding-top: 100px; /* Space for fixed header */
+        }
+
+        .categories, .featured-products {
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .category-grid, .product-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .category, .product {
+            margin: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            width: 200px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .category img, .product img {
+            width: 100%;
+            height: auto;
+        }
+
+        .category-button, .product-button {
+            background-color: #ff4c00;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: block;
+            text-align: center;
+        }
+
+        footer {
+            background-color: rgba(17, 17, 17, 0.8);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .social-media a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .products-column {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Nike Shop</div>
+        <nav>
+            <ul>
+                <li><a href="#shoes" onclick="showProducts('shoes')">Shoes</a></li>
+                <li><a href="#clothing" onclick="showProducts('clothing')">Clothing</a></li>
+                <li><a href="#accessories" onclick="showProducts('accessories')">Accessories</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="categories" id="shoes">
+        <h2>Shop by Category</h2>
+        <div class="category-grid">
+            <div class="category">
+                <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/4a36274f-c86e-4737-86a5-58c055aaf17c/NIKE+PRECISION+VI.png" alt="Shoes">
+                <h3>Shoes</h3>
+                <a href="#shoes" class="category-button" onclick="showProducts('shoes')">Shop Shoes</a>
+            </div>
+            <div class="category">
+                <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/337da463-8c9c-4b3b-afee-23a94f30aea9/AS+M+NSW+TEE+ICON+FUTURA.png" alt="Clothing">
+                <h3>Clothing</h3>
+                <a href="#clothing" class="category-button" onclick="showProducts('clothing')">Shop Clothing</a>
+            </div>
+            <div class="category">
+                <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/a7adb615-98ec-4d11-ac40-052058b24f0c/U+NK+DF+CLUB+CAP+S+CB+P.png" alt="Accessories">
+                <h3>Accessories</h3>
+                <a href="#accessories" class="category-button" onclick="showProducts('accessories')">Shop Accessories</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="products" class="products-column">
+        <h2>Available Products</h2>
+        <div class="product-grid" id="product-list"></div>
+    </div>
+
+    <section class="featured-products" id="featured">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/378820bf-d936-411c-950b-b80e1033c454/NIKE+QUEST+6.png" alt="Product 1">
+                <h3>Nike Quest 6 Men's Road Running Shoes</h3>
+                <p>$53.99</p>
+                <a href="#product1" class="product-button">Add to Cart</a>
+            </div>
+            <div class="product">
+                <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/NIKE+DUNK+LOW+RETRO.png" alt="Product 2">
+                <h3>Nike Dunk Low Retro Men's Shoe</h3>
+                <p>$103.95</p>
+                <a href="#product2" class="product-button">Add to Cart</a>
+            </div>
+            <div class="product">
+                <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/963bd9d0-1196-46e8-a6ac-f52824e3bb42/NIKE+AIR+MAX+IMPACT+4.png" alt="Product 3">
+                <h3>Nike Impact 4 Basketball Shoes</h3>
+                <p>$59.99</p>
+                <a href="#product3" class="product-button">Add to Cart</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Nike Shop. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        function showProducts(category) {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = ''; 
+            let products = [];
+
+            if (category === 'shoes') {
+                products = [
+                    {
+                        img: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/4a36274f-c86e-4737-86a5-58c055aaf17c/NIKE+PRECISION+VI.png',
+                        name: 'Nike Precision VI',
+                        price: '$89.99'
+                    },
+                    {
+                        img: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/47b7945e-a379-4c24-b9df-98f4eef178e5/NIKE+AIR+MAX+PLUS.png',
+                        name: 'Nike Air Max Plus Mens Shoes',
+                        price: '$151.55'
+                    },
+                    {
+                        img: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/65d684cb-c14a-43d4-80c2-c1c43b7892e6/NIKE+INTERACT+RUN.png',
+                        name: 'Nike Interact Run Mens Road Running Shoes',
+                        price: '$75.73'
+                    }
+                ];
+            } else if (category === 'clothing') {
+                products = [
+                    {
+                        img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/337da463-8c9c-4b3b-afee-23a94f30aea9/AS+M+NSW+TEE+ICON+FUTURA.png',
+                        name: 'Nike Icon Futura T-Shirt',
+                        price: '$35.00'
+                    },
+                    {
+                        img: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/5b7803a1-68a6-449b-aa23-68da270bf825/K+NSW+CLUB+KNIT+FZ+LS+LBR.png',
+                        name: 'Nike Sportswear Club Older Kids Full-Zip Knit Jacket',
+                        price: '$65.00'
+                    },
+                    {
+                        img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/edef4719-05ce-4d38-a468-c3354ac61994/AS+W+NSW+SS+TEE+OC+VARZITY.png',
+                        name: 'Nike Women Varsity T-Shirt',
+                        price: '$25.00'
+                    }
+                ];
+            } else if (category === 'accessories') {
+                products = [
+                    {
+                        img: 'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/a7adb615-98ec-4d11-ac40-052058b24f0c/U+NK+DF+CLUB+CAP+S+CB+P.png',
+                        name: 'Nike Club Cap',
+                        price: '$25.00'
+                    },
+                    {
+                        img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/d6cae666-d8f6-4f2d-adcb-1f3d1c090f9b/Y+NK+ELMNTL+BKPK+SHOEBOX.png',
+                        name: 'Nike Shoe Box',
+                        price: '$19.99'
+                    },
+                    {
+                        img: 'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/04e83a2f-2f05-4983-a57b-46b6ef1cc2c9/NK+NSW+ESSENTIALS+CROSSBODY.png',
+                        name: 'Nike Cross Body',
+                        price: '$23.95'
+                    }
+                ];
+            }
+
+            // Display the products
+            products.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
+                productDiv.innerHTML = `
+                    <img src="${product.img}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>${product.price}</p>
+                    <a href="#${product.name.replace(/\s+/g, '').toLowerCase()}" class="product-button">Add to Cart</a>
+                `;
+                productList.appendChild(productDiv);
+            });
+
+            // Show the products column
+            document.getElementById('products').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
